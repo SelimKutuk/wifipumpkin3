@@ -1,6 +1,63 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [unReleased]
+### Fixed
+- fixed: makefile python version 
+- fixed: version python support from workflows 
+- fixed: incompatible version of pyOpenSSL pumpkinproxy 
+- fixed: AttributeError: 'DhcpdServer' object has no attribute 'get_mac_vendor'
+
+### Changed
+- changed: update minimal version of Python to 3.8
+
+### Added 
+- added: optional to set shared interface internet connection 
+- added: network core command for show information about connections
+
+## [1.1.5] 
+
+### Added 
+- added: param -iNM or -ignore-from-networkmanager for ignore interface from network-manager #158
+- fixed: Emoji crashes scans #104
+- fixed: command `clients` now show into logger real time view
+- fixed: include lib mac_vendor_lookup sorce code into core
+
+## [Released]
+
+## [1.1.4] 
+
+### Added 
+- added: pydnsserver on verbose mode and settings dhcpmode variable
+- added: new feature captiveflask force redirect user after login to any website
+- added: karma wireless mode hostapd-wpe
+
+### Changed
+- changed: replace flask-restx to flask-restful backend api
+- updated: changelog version with new commits
+- changed: redirect to login_sucessful.html by default
+- Create PULL_REQUEST_TEMPLATE.md
+
+### Deprecated
+
+### Removed
+- removed: plugin replace image from pumpkinproxy
+
+### Fixed
+- fixed: bug try install extracaptiveflask variable not found
+- fixed: import error urwid module
+- fixed: error: MarkupSafe 2.0.1 is installed but MarkupSafe>=2.1.1 is required by {'Werkzeug'}
+- fixed: update flask dependencies to version >= 2.0 
+- fixed: debian packager postinst python3 depedencies
+- bugfix configuser and improvements .deb packager
+- fixed: override shutdown function for finish any proxy when stop AP
+- hotfix: impoves captiveflask and pumpkinproxy settings
+- Fix custom_captiveflask installation
+- fixed: iptables binary path for captiveflask allow user internet connection
+- fixed: iptables binary path on restapi mode
+- hotfix: proxies settings config from CLI
+- fix typo on  wifideauth module
+- fixed: builtins.KeyError: 'host' error from sslstrip3 plugin
 
 ## [Released]
 

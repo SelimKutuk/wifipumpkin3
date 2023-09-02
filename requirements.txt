@@ -1,5 +1,4 @@
 netifaces>=0.10.9
-netaddr>=0.7.19
 dhcplib==0.1.1
 tabulate>=0.8.5
 urwid==2.1.2
@@ -7,7 +6,7 @@ termcolor>=1.1.0
 twisted>=19.7.0
 PyQt5>=5.14
 PyQt5-sip
-pyOpenSSL==19.0.0
+pyOpenSSL>=22.1.0
 dnslib==0.9.17
 loguru>=0.4.0
 scapy>=2.4.4
@@ -18,3 +17,5 @@ requests>=2.18.4
 beautifulsoup4>=4.9.1
 PyJWT==2.1.0
 Flask-RESTful>=0.3.9
+aiofiles
+ping3

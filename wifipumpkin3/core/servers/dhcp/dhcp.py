@@ -1,6 +1,5 @@
 import weakref
 from re import *
-from netaddr import EUI
 from wifipumpkin3.core.config.globalimport import *
 from wifipumpkin3.core.common.uimodel import *
 from wifipumpkin3.core.utility.component import ComponentBlueprint
@@ -10,6 +9,7 @@ from wifipumpkin3.exceptions.errors.dhcpException import (
     DHCPdServerNotFound,
 )
 from wifipumpkin3.core.widgets.default.logger_manager import LoggerManager
+from wifipumpkin3.core.lib.mac_vendor_lookup import MacLookup, BaseMacLookup, VendorNotFoundError
 
 # This file is part of the wifipumpkin3 Open Source Project.
 # wifipumpkin3 is licensed under the Apache 2.0.
@@ -111,12 +111,13 @@ class DHCPServers(QtCore.QObject, ComponentBlueprint):
 
     def get_mac_vendor(self, mac):
         """discovery mac vendor by mac address"""
+        BaseMacLookup.cache_path = "{}/config/mac-vendors.txt".format(C.user_config_dir)
+        mac_obj = MacLookup()
         try:
-            d_vendor = EUI(mac)
-            d_vendor = d_vendor.oui.registration().org
-        except:
-            d_vendor = "unknown mac"
-        return d_vendor
+            d_vendor = mac_obj.lookup(mac)
+        except VendorNotFoundError:
+            return "unknown vendor"
+        return d_vendor 
 
     def removeInactivityClient(self, mac: str):
         if mac in self._connected:

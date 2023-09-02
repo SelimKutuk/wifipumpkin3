@@ -3,7 +3,7 @@ from wifipumpkin3.core.controllers.defaultcontroller import *
 from wifipumpkin3.core.config.globalimport import *
 
 from wifipumpkin3.modules import *
-from wifipumpkin3.modules import module_list, all_modules
+from wifipumpkin3.modules import module_list
 
 # This file is part of the wifipumpkin3 Open Source Project.
 # wifipumpkin3 is licensed under the Apache 2.0.
@@ -65,6 +65,9 @@ class PumpkinShell(Qt.QObject, ConsoleUI):
         """this method is called in __init__"""
         # set current session unique id
         self.conf.set("accesspoint", "current_session", self.currentSessionID)
+        # set interface for shared connection from params
+        self.conf.set("accesspoint", "interface_net", self.parse_args.interface_net)
+            
         if self.parse_args.interface:
             self.conf.set("accesspoint", "interface", self.parse_args.interface)
 
@@ -116,6 +119,7 @@ class PumpkinShell(Qt.QObject, ConsoleUI):
 
         self.commands = {
             "interface": "interface",
+            "interface_net": "interface_net",
             "ssid": "ssid",
             "bssid": "bssid",
             "channel": "channel",
@@ -314,10 +318,6 @@ class PumpkinShell(Qt.QObject, ConsoleUI):
         if logger != None:
             return logger.setIgnore(False)
         print(display_messages("Logger class not found.", error=True))
-
-    def do_clients(self, args):
-        """ap: show all connected clients on AP"""
-        self.uiwid_controller.ui_table_mod.start()
 
     def do_stop(self, args):
         """ap: stop access point service"""
