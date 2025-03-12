@@ -88,6 +88,8 @@ setup(
             "wifipumpkin3=wifipumpkin3.__main__:main",
             "wp3=wifipumpkin3.__main__:main",
             "captiveflask=wifipumpkin3.plugins.bin.captiveflask:main",
+            "phishkin3=wifipumpkin3.plugins.bin.phishkin3:main",
+            "evilqr3=wifipumpkin3.plugins.bin.evilqr3:main",
             "sslstrip3=wifipumpkin3.plugins.bin.sslstrip3:main",
         ],
     },
